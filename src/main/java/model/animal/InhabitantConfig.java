@@ -24,26 +24,26 @@ public class InhabitantConfig {
     /**
      * Map Key -> Hunter class, value it`s Map key-> Victim class, value eatProbability
      **/
-    public static Map<Class<? extends Inhabitant>, Map<Class<? extends Inhabitant>, Integer>> fightProbabilityMap =
+    public final Map<Class<? extends Inhabitant>, Map<Class<? extends Inhabitant>, Integer>> fightProbabilityMap =
             new HashMap<>();
     /**
      * Map with inhabitant class and inhabitant max number on Cell
      **/
-    public static final Map<Class<? extends Inhabitant>, Integer> maxNumberOnCellMap =
+    public final Map<Class<? extends Inhabitant>, Integer> maxNumberOnCellMap =
             new HashMap<>();
 
-    static {
+    {
         fillFightProbability();
         fillMaxNumberOnCellMap();
     }
 
-    private static void fillFightProbability() {
+    private void fillFightProbability() {
         for (Class<? extends Inhabitant> inhabitantClass : inhabitantClassList) {
             fightProbabilityMap.put(inhabitantClass, getInhabitantConfig(inhabitantClass));
         }
     }
 
-    private static void fillMaxNumberOnCellMap() {
+    private void fillMaxNumberOnCellMap() {
         PropertiesReader reader = new PropertiesReader(FOLDER);
         for (Class<? extends Inhabitant> inhabitantClass : inhabitantClassList) {
             Properties maxNumberOnCellProps = reader.loadProperties(inhabitantClass.getSimpleName().toLowerCase());
@@ -52,7 +52,7 @@ public class InhabitantConfig {
         }
     }
 
-    private static Map<Class<? extends Inhabitant>, Integer> getInhabitantConfig(Class<? extends Inhabitant> hunterClass) {
+    private Map<Class<? extends Inhabitant>, Integer> getInhabitantConfig(Class<? extends Inhabitant> hunterClass) {
         Map<Class<? extends Inhabitant>, Integer> victimMap = new HashMap<>();
         String hunter = hunterClass.getSimpleName().toLowerCase();
         PropertiesReader reader = new PropertiesReader(FOLDER);

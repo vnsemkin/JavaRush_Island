@@ -13,6 +13,7 @@ import java.util.Map;
  * Cell creation class
  **/
 public class CellFactory {
+    private final InhabitantConfig inhabitantConfig = new InhabitantConfig();
 
     public Cell createCell() {
         Cell cell = new Cell();
@@ -26,7 +27,7 @@ public class CellFactory {
                      NoSuchMethodException e) {
                 throw new RuntimeException(e);
             }
-            for (Map.Entry<Class<? extends Inhabitant>, Integer> maxNumberOnCellEntry : InhabitantConfig.maxNumberOnCellMap.entrySet()) {
+            for (Map.Entry<Class<? extends Inhabitant>, Integer> maxNumberOnCellEntry : inhabitantConfig.maxNumberOnCellMap.entrySet()) {
                 if (inhabitantClass.equals(maxNumberOnCellEntry.getKey())) {
                     maxNumberOnCell = maxNumberOnCellEntry.getValue();
                     break;

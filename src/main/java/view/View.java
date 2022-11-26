@@ -10,6 +10,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class View {
+    private final InhabitantConfig inhabitantConfig = new InhabitantConfig();
+
     public void printIsland(Island island, String taskName) {
         int j;
         Map<String, Integer> cellMap;
@@ -20,7 +22,7 @@ public class View {
                 int animalSize = island.getIsland().get(i).get(j).getAnimals().size();
                 int plantSize = island.getIsland().get(i).get(j).getPlants().size();
                 int count;
-                for (Class<? extends Inhabitant> animalClass : InhabitantConfig.maxNumberOnCellMap.keySet()) {
+                for (Class<? extends Inhabitant> animalClass : inhabitantConfig.maxNumberOnCellMap.keySet()) {
                     int k;
                     Inhabitant inhabitant = null;
                     count = 0;

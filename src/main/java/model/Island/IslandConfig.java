@@ -8,18 +8,18 @@ import java.util.Properties;
  * Island configuration data
  **/
 public class IslandConfig {
-    static PropertiesReader reader = new PropertiesReader("islandproperties");
-    static Properties island;
+    private final PropertiesReader reader = new PropertiesReader("islandproperties");
+    private final Properties island;
 
-    static {
+    {
         island = reader.loadProperties("island");
     }
 
-    public static int getIslandSizeByX() {
+    public int getIslandSizeByX() {
         return Integer.parseInt(island.getProperty("x"));
     }
 
-    public static int getIslandSizeByY() {
+    public int getIslandSizeByY() {
         return Integer.parseInt(island.getProperty("y"));
     }
 }

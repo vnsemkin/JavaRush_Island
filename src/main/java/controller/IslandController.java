@@ -53,7 +53,7 @@ public class IslandController implements Runnable {
                 cellController.animalReproduction(cell);
             }
         }
-        view.printIsland(island, "Reproduction!");
+        view.printIsland(island, "Animal Reproduction!");
     }
 
     @Override

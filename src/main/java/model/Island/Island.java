@@ -5,8 +5,9 @@ import java.util.List;
 
 public class Island {
     private final List<List<Cell>> island;
-    private final int x = IslandConfig.getIslandSizeByX();
-    private final int y = IslandConfig.getIslandSizeByY();
+    private final IslandConfig islandConfig = new IslandConfig();
+    private final int x = islandConfig.getIslandSizeByX();
+    private final int y = islandConfig.getIslandSizeByY();
 
     public Island() {
         island = new ArrayList<>(x);

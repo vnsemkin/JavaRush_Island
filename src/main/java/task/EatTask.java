@@ -12,6 +12,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class EatTask {
     private Cell cell;
+    private final InhabitantConfig inhabitantConfig = new InhabitantConfig();
 
     public void animalEat(Cell cell) {
         this.cell = cell;
@@ -21,7 +22,7 @@ public class EatTask {
     }
 
     private void getAnimalEat(Animal hunter) {
-        Map<Class<? extends Inhabitant>, Integer> victimMap = InhabitantConfig.fightProbabilityMap.get(hunter.getClass());
+        Map<Class<? extends Inhabitant>, Integer> victimMap = inhabitantConfig.fightProbabilityMap.get(hunter.getClass());
         for (Map.Entry<Class<? extends Inhabitant>, Integer> victimEntry : victimMap.entrySet()) {
             ThreadLocalRandom threadLocalRandom = ThreadLocalRandom.current();
             int randomProbability = threadLocalRandom.nextInt(100);
