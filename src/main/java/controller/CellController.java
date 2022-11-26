@@ -9,26 +9,17 @@ import task.ReproductionTask;
  * Class for managing animals in Cell
  **/
 public class CellController {
-    private Cell cell;
     private final ReproductionTask reproductionTask = new ReproductionTask();
     private final EatTask eatTask = new EatTask();
     private final GrassGrowTask grassGrowTask = new GrassGrowTask();
 
-    public void animalEat() {
-        eatTask.setCell(cell);
-        eatTask.animalEat();
-    }
+    public void animalEat(Cell cell) {eatTask.animalEat(cell);}
 
-    public void grassGrow() {
+    public void grassGrow(Cell cell) {
         grassGrowTask.grassGrow(cell);
     }
 
-    public void animalReproduction() {
+    public void animalReproduction(Cell cell) {
         reproductionTask.animalReproduction(cell);
-    }
-
-
-    public void setCell(Cell cell) {
-        this.cell = cell;
     }
 }

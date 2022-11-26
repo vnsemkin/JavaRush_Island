@@ -15,15 +15,4 @@ public abstract class Animal extends Inhabitant implements Raptor, Herbivore {
         return cellsMove;
     }
 
-    public void setCellsMove(int cellsMove) {
-        this.cellsMove = cellsMove;
-    }
-
-    public float getFoodSaturation() {
-        return foodSaturation;
-    }
-
-    public void setFoodSaturation(float foodSaturation) {
-        this.foodSaturation = foodSaturation;
-    }
 }

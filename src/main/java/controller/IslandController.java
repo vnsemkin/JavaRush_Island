@@ -14,53 +14,46 @@ import java.util.concurrent.*;
  **/
 public class IslandController implements Runnable {
     private final View view = new View();
-    private Island island = IslandFactory.getInitialIsland();
+    private final IslandFactory islandFactory = new IslandFactory();
+    private Island island = islandFactory.getInitialIsland();
     private final MoveTask moveTask = new MoveTask();
     private final CellController cellController = new CellController();
 
 
     public void printInitialIsland() {
-        System.out.println("Start new Island!");
-        view.printIsland(island);
+        view.printIsland(island, "Start new Island!");
     }
 
     public void animalEat() {
         for (List<Cell> cellList : island.getIsland()) {
             for (Cell cell : cellList) {
-                cellController.setCell(cell);
-                cellController.animalEat();
+                cellController.animalEat(cell);
             }
         }
-        System.out.println("Animal Eat!");
-        view.printIsland(island);
+        view.printIsland(island, "Animal Eat!");
     }
 
     public void animalMove() {
         island = moveTask.animalMove(island);
-        System.out.println("Animal Move");
-        view.printIsland(island);
+        view.printIsland(island, "Animal Move");
     }
 
     public void grassGrow() {
         for (List<Cell> cellList : island.getIsland()) {
             for (Cell cell : cellList) {
-                cellController.setCell(cell);
-                cellController.grassGrow();
+                cellController.grassGrow(cell);
             }
         }
-        System.out.println("Grass Grow!");
-        view.printIsland(island);
+        view.printIsland(island, "Grass Grow!");
     }
 
     public void animalReproduction() {
         for (List<Cell> cellList : island.getIsland()) {
             for (Cell cell : cellList) {
-                cellController.setCell(cell);
-                cellController.animalReproduction();
+                cellController.animalReproduction(cell);
             }
         }
-        System.out.println("Reproduction!");
-        view.printIsland(island);
+        view.printIsland(island, "Reproduction!");
     }
 
     @Override

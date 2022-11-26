@@ -10,9 +10,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class View {
-    public void printIsland(Island island) {
+    public void printIsland(Island island, String taskName) {
         int j;
         Map<String, Integer> cellMap;
+        System.out.println(taskName);
         for (int i = 0; i < island.getX(); i++) {
             for (j = 0; j < island.getY(); j++) {
                 cellMap = new HashMap<>();
@@ -35,6 +36,7 @@ public class View {
                                 count++;
                         }
                     }
+                    assert inhabitant != null;
                     cellMap.put(inhabitant.getSymbol(), count);
                 }
                 for (int k = 0; k < plantSize; k++) {

@@ -13,13 +13,13 @@ import java.util.Map;
  * Cell creation class
  **/
 public class CellFactory {
-    private Inhabitant inhabitant;
 
     public Cell createCell() {
         Cell cell = new Cell();
         int number;
         int maxNumberOnCell = 0;
         for (Class<? extends Inhabitant> inhabitantClass : InhabitantConfig.inhabitantClassList) {
+            Inhabitant inhabitant;
             try {
                 inhabitant = inhabitantClass.getConstructor().newInstance();
             } catch (InstantiationException | IllegalAccessException | InvocationTargetException |

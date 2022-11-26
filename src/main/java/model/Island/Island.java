@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Island {
-    private List<List<Cell>> island;
+    private final List<List<Cell>> island;
     private final int x = IslandConfig.getIslandSizeByX();
     private final int y = IslandConfig.getIslandSizeByY();
 

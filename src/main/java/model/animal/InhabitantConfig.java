@@ -14,6 +14,9 @@ import java.util.Properties;
  * Inhabitant configuration data
  **/
 public class InhabitantConfig {
+    private static final String FOLDER = "huntprobability";
+    private static final String numberOnCell = "numberOnCell";
+
     public static final List<Class<? extends Inhabitant>> inhabitantClassList = List.of(Boar.class,
             Buffalo.class, Caterpillar.class
             , Deer.class, Duck.class, Goat.class, Horse.class, Mouse.class, Rabbit.class
@@ -41,10 +44,10 @@ public class InhabitantConfig {
     }
 
     private static void fillMaxNumberOnCellMap() {
-        PropertiesReader reader = new PropertiesReader("huntprobability");
+        PropertiesReader reader = new PropertiesReader(FOLDER);
         for (Class<? extends Inhabitant> inhabitantClass : inhabitantClassList) {
             Properties maxNumberOnCellProps = reader.loadProperties(inhabitantClass.getSimpleName().toLowerCase());
-            Integer maxNumberOnCell = Integer.valueOf(maxNumberOnCellProps.getProperty("numberOnCell"));
+            Integer maxNumberOnCell = Integer.valueOf(maxNumberOnCellProps.getProperty(numberOnCell));
             maxNumberOnCellMap.put(inhabitantClass, maxNumberOnCell);
         }
     }
@@ -52,7 +55,7 @@ public class InhabitantConfig {
     private static Map<Class<? extends Inhabitant>, Integer> getInhabitantConfig(Class<? extends Inhabitant> hunterClass) {
         Map<Class<? extends Inhabitant>, Integer> victimMap = new HashMap<>();
         String hunter = hunterClass.getSimpleName().toLowerCase();
-        PropertiesReader reader = new PropertiesReader("huntprobability");
+        PropertiesReader reader = new PropertiesReader(FOLDER);
         Properties victimProbability = reader.loadProperties(hunter);
         for (Class<? extends Inhabitant> victimClass : inhabitantClassList) {
             String name = victimClass.getSimpleName();

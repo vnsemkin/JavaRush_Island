@@ -11,13 +11,10 @@ import java.util.Map;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class EatTask {
-    Cell cell;
+    private Cell cell;
 
-    public void setCell(Cell cell) {
+    public void animalEat(Cell cell) {
         this.cell = cell;
-    }
-
-    public void animalEat() {
         for (int i = 0; i < cell.getAnimals().size(); i++) {
             getAnimalEat(cell.getAnimals().get(i));
         }
@@ -39,7 +36,7 @@ public class EatTask {
         }
     }
 
-    public void removeAnimal(Inhabitant inhabitant) {
+    private void removeAnimal(Inhabitant inhabitant) {
         if (inhabitant instanceof Animal) {
             for (Animal animal : cell.getAnimals()) {
                 if (animal.getClass().equals(inhabitant.getClass())) {
