@@ -1,5 +1,6 @@
 package task;
 
+import controller.IslandController;
 import model.Island.Cell;
 import model.animal.Animal;
 import model.animal.Inhabitant;
@@ -8,7 +9,8 @@ import model.animal.InhabitantConfig;
 import java.lang.reflect.InvocationTargetException;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class ReproductionTask {
+public class ReproductionTask implements Runnable {
+    private final IslandController islandController = new IslandController();
 
     public void animalReproduction(Cell cell) {
         for (Class<? extends Inhabitant> animalClass : InhabitantConfig.inhabitantClassList) {
@@ -25,5 +27,10 @@ public class ReproductionTask {
             }
         }
 
+    }
+
+    @Override
+    public void run() {
+        islandController.animalReproduction(this);
     }
 }

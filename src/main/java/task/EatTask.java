@@ -1,5 +1,6 @@
 package task;
 
+import controller.IslandController;
 import model.Island.Cell;
 import model.animal.Animal;
 import model.animal.Inhabitant;
@@ -10,8 +11,9 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.Map;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class EatTask {
+public class EatTask implements Runnable {
     private Cell cell;
+    private final IslandController islandController = new IslandController();
     private final InhabitantConfig inhabitantConfig = new InhabitantConfig();
 
     public void animalEat(Cell cell) {
@@ -53,5 +55,10 @@ public class EatTask {
                 }
             }
         }
+    }
+
+    @Override
+    public void run() {
+        islandController.animalEat(this);
     }
 }

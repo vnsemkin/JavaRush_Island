@@ -1,10 +1,10 @@
-import controller.IslandController;
+import task.StartTask;
 
 /**
  * Game Controller
  **/
 public class Controller {
     public static void main(String[] args) {
-        new Thread(new IslandController()).start();
+        new Thread(new StartTask()).start();
     }
 }
