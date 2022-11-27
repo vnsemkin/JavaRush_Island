@@ -19,7 +19,7 @@ public class CellFactory {
         Cell cell = new Cell();
         int number;
         int maxNumberOnCell = 0;
-        for (Class<? extends Inhabitant> inhabitantClass : InhabitantConfig.inhabitantClassList) {
+        for (Class<? extends Inhabitant> inhabitantClass : inhabitantConfig.inhabitantClassList) {
             Inhabitant inhabitant;
             try {
                 inhabitant = inhabitantClass.getConstructor().newInstance();

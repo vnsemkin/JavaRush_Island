@@ -24,11 +24,13 @@ public class EatTask implements Runnable {
     }
 
     private void getAnimalEat(Animal hunter) {
-        Map<Class<? extends Inhabitant>, Integer> victimMap = inhabitantConfig.fightProbabilityMap.get(hunter.getClass());
+        Map<Class<? extends Inhabitant>, Integer> victimMap =
+                inhabitantConfig.fightProbabilityMap.get(hunter.getClass());
         for (Map.Entry<Class<? extends Inhabitant>, Integer> victimEntry : victimMap.entrySet()) {
             ThreadLocalRandom threadLocalRandom = ThreadLocalRandom.current();
             int randomProbability = threadLocalRandom.nextInt(100);
-            if (victimEntry.getValue() != 0 && randomProbability >= victimEntry.getValue() || victimEntry.getValue() == 100) {
+            if (victimEntry.getValue() != 0 && randomProbability >= victimEntry.getValue()
+                    || victimEntry.getValue() == 100) {
                 try {
                     removeAnimal(victimEntry.getKey().getConstructor().newInstance());
                 } catch (InstantiationException | IllegalAccessException | NoSuchMethodException |

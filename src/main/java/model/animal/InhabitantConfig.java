@@ -17,7 +17,7 @@ public class InhabitantConfig {
     private static final String FOLDER = "huntprobability";
     private static final String numberOnCell = "numberOnCell";
 
-    public static final List<Class<? extends Inhabitant>> inhabitantClassList = List.of(Boar.class,
+    public final List<Class<? extends Inhabitant>> inhabitantClassList = List.of(Boar.class,
             Buffalo.class, Caterpillar.class
             , Deer.class, Duck.class, Goat.class, Horse.class, Mouse.class, Rabbit.class
             , Sheep.class, Bear.class, Eagle.class, Fox.class, Snake.class, Wolf.class, Grass.class);

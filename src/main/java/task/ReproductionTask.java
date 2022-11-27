@@ -11,9 +11,10 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class ReproductionTask implements Runnable {
     private final IslandController islandController = new IslandController();
+    private final InhabitantConfig inhabitantConfig = new InhabitantConfig();
 
     public void animalReproduction(Cell cell) {
-        for (Class<? extends Inhabitant> animalClass : InhabitantConfig.inhabitantClassList) {
+        for (Class<? extends Inhabitant> animalClass : inhabitantConfig.inhabitantClassList) {
             for (int i = 0; i < cell.getAnimals().size(); i++) {
                 boolean isReproduction = ThreadLocalRandom.current().nextBoolean();
                 if (animalClass.equals(cell.getAnimals().get(i).getClass()) && isReproduction) {
@@ -26,7 +27,6 @@ public class ReproductionTask implements Runnable {
                 }
             }
         }
-
     }
 
     @Override

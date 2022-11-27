@@ -1,7 +1,6 @@
 package controller;
 
 import factory.IslandFactory;
-import model.Island.Cell;
 import model.Island.Island;
 import task.EatTask;
 import task.GrassGrowTask;
@@ -17,20 +16,21 @@ import java.util.*;
 public class IslandController {
     private final View view = new View();
     private final IslandFactory islandFactory = new IslandFactory();
-    private Island island = islandFactory.getInitialIsland();
+    private static Island island;
     private final CellController cellController = new CellController();
 
+    {
+        island = islandFactory.getInitialIsland();
+    }
 
     public void printInitialIsland() {
         view.printIsland(island, "Start new Island!");
     }
 
     public void animalEat(EatTask eatTask) {
-        for (List<Cell> cellList : island.getIsland()) {
-            for (Cell cell : cellList) {
-                cellController.animalEat(cell, eatTask);
-            }
-        }
+        island.getIsland().stream()
+                .flatMap(Collection::stream)
+                .forEach(cell -> cellController.animalEat(cell, eatTask));
         view.printIsland(island, "Animal Eat!");
     }
 
@@ -40,20 +40,16 @@ public class IslandController {
     }
 
     public void grassGrow(GrassGrowTask grassGrowTask) {
-        for (List<Cell> cellList : island.getIsland()) {
-            for (Cell cell : cellList) {
-                cellController.grassGrow(cell, grassGrowTask);
-            }
-        }
+        island.getIsland().stream()
+                .flatMap(Collection::stream)
+                .forEach(cell -> cellController.grassGrow(cell, grassGrowTask));
         view.printIsland(island, "Grass Grow!");
     }
 
     public void animalReproduction(ReproductionTask reproductionTask) {
-        for (List<Cell> cellList : island.getIsland()) {
-            for (Cell cell : cellList) {
-                cellController.animalReproduction(cell, reproductionTask);
-            }
-        }
+        island.getIsland().stream()
+                .flatMap(Collection::stream)
+                .forEach(cell -> cellController.animalReproduction(cell, reproductionTask));
         view.printIsland(island, "Animal Reproduction!");
     }
 }
