@@ -1,12 +1,10 @@
 package task;
 
-import controller.IslandController;
 import model.Island.Cell;
 import model.Island.Island;
 import model.animal.Animal;
 
-public class MoveTask implements Runnable {
-    private final IslandController islandController = new IslandController();
+public class MoveTask {
 
     public Island animalMove(Island island) {
         Island newIsland = new Island();
@@ -51,10 +49,5 @@ public class MoveTask implements Runnable {
         }
         island = newIsland;
         return island;
-    }
-
-    @Override
-    public void run() {
-        islandController.animalMove(this);
     }
 }

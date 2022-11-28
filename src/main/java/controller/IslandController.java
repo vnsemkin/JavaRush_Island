@@ -2,10 +2,7 @@ package controller;
 
 import factory.IslandFactory;
 import model.Island.Island;
-import task.EatTask;
-import task.GrassGrowTask;
 import task.MoveTask;
-import task.ReproductionTask;
 import view.View;
 
 import java.util.*;
@@ -15,6 +12,7 @@ import java.util.*;
  **/
 public class IslandController {
     private final View view = new View();
+    private final MoveTask moveTask = new MoveTask();
     private final IslandFactory islandFactory = new IslandFactory();
     private static Island island;
     private final CellController cellController = new CellController();
@@ -27,29 +25,29 @@ public class IslandController {
         view.printIsland(island, "Start new Island!");
     }
 
-    public void animalEat(EatTask eatTask) {
+    public void animalEat() {
         island.getIsland().stream()
                 .flatMap(Collection::stream)
-                .forEach(cell -> cellController.animalEat(cell, eatTask));
+                .forEach(cellController::animalEat);
         view.printIsland(island, "Animal Eat!");
     }
 
-    public void animalMove(MoveTask moveTask) {
+    public void animalMove() {
         island = moveTask.animalMove(island);
         view.printIsland(island, "Animal Move");
     }
 
-    public void grassGrow(GrassGrowTask grassGrowTask) {
+    public void grassGrow() {
         island.getIsland().stream()
                 .flatMap(Collection::stream)
-                .forEach(cell -> cellController.grassGrow(cell, grassGrowTask));
+                .forEach(cellController::grassGrow);
         view.printIsland(island, "Grass Grow!");
     }
 
-    public void animalReproduction(ReproductionTask reproductionTask) {
+    public void animalReproduction() {
         island.getIsland().stream()
                 .flatMap(Collection::stream)
-                .forEach(cell -> cellController.animalReproduction(cell, reproductionTask));
+                .forEach(cellController::animalReproduction);
         view.printIsland(island, "Animal Reproduction!");
     }
 }
