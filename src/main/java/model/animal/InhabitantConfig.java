@@ -14,7 +14,7 @@ import java.util.Properties;
  * Inhabitant configuration data
  **/
 public class InhabitantConfig {
-    private static final String FOLDER = "huntprobability";
+    private static final String FOLDER = "inhabitantprops";
     private static final String numberOnCell = "numberOnCell";
 
     public final List<Class<? extends Inhabitant>> inhabitantClassList = List.of(Boar.class,

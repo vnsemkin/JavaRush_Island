@@ -8,7 +8,7 @@ import java.util.Properties;
  * Island configuration data
  **/
 public class IslandConfig {
-    private final PropertiesReader reader = new PropertiesReader("islandproperties");
+    private final PropertiesReader reader = new PropertiesReader("islandprops");
     private final Properties island;
 
     {
