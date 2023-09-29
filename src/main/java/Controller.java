@@ -1,5 +1,4 @@
 import task.StartTask;
-
 /**
  * Game Controller
  **/

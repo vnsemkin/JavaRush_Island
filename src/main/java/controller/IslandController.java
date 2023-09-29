@@ -5,7 +5,7 @@ import model.Island.Island;
 import task.MoveTask;
 import view.View;
 
-import java.util.*;
+import java.util.Collection;
 
 /**
  * Class for managing island
