@@ -1,9 +1,10 @@
 package view;
 
+import config.IslandConstants;
 import model.Island.Cell;
 import model.Island.Island;
 import model.animal.Inhabitant;
-import model.animal.InhabitantConfig;
+import config.InhabitantConfig;
 import model.plant.Grass;
 
 import java.lang.reflect.InvocationTargetException;
@@ -17,7 +18,7 @@ public class View {
         island.getIsland().stream()
                 .flatMap(Collection::stream)
                 .forEach(this::print);
-        System.out.println("<------------------------------Next Generation----------------------------->");
+        System.out.println(IslandConstants.NEXT_GEN);
     }
 
     private void print(Cell cell) {

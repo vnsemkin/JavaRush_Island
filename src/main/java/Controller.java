@@ -1,4 +1,4 @@
-import task.StartTask;
+import service.task.StartTask;
 /**
  * Game Controller
  **/

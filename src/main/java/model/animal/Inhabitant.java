@@ -1,12 +1,12 @@
 package model.animal;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.Getter;
+import lombok.*;
 
-@Data
-@AllArgsConstructor
+
 @Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public abstract class Inhabitant implements Cloneable {
     protected String name;
     protected String symbol;

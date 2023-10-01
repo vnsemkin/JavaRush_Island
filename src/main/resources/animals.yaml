@@ -1,0 +1,89 @@
+- name: Wolf
+  symbol: 🐺
+  weight: 50
+  cells_move: 3
+  foodSaturation: 8
+
+- name: Snake
+  symbol: 🐍
+  weight: 15
+  cells_move: 1
+  foodSaturation: 3
+
+- name: Fox
+  symbol: 🦊
+  weight: 8
+  cells_move: 2
+  foodSaturation: 2
+
+- name: Bear
+  symbol: 🐻
+  weight: 500
+  cells_move: 2
+  foodSaturation: 80
+
+- name: Eagle
+  symbol: 🦅
+  weight: 6
+  cells_move: 3
+  foodSaturation: 1
+
+- name: Horse
+  symbol: 🐴
+  weight: 400
+  cells_move: 4
+  foodSaturation: 60
+
+- name: Deer
+  symbol: 🦌
+  weight: 300
+  cells_move: 4
+  foodSaturation: 50
+
+- name: Rabbit
+  symbol: 🐇
+  weight: 2
+  cells_move: 2
+  foodSaturation: 0.45
+
+- name: Mouse
+  symbol: 🐭
+  weight: 0.05
+  cells_move: 1
+  foodSaturation: 0.01
+
+- name: Goat
+  symbol: 🐐
+  weight: 60
+  cells_move: 3
+  foodSaturation: 10
+
+- name: Sheep
+  symbol: 🐑
+  weight: 70
+  cells_move: 3
+  foodSaturation: 15
+
+- name: Boar
+  symbol: 🐗
+  weight: 400
+  cells_move: 2
+  foodSaturation: 50
+
+- name: Buffalo
+  symbol: 🐃
+  weight: 700
+  cells_move: 3
+  foodSaturation: 100
+
+- name: Duck
+  symbol: 🦆
+  weight: 1
+  cells_move: 4
+  foodSaturation: 0.15
+
+- name: Caterpillar
+  symbol: 🐛
+  weight: 0.01
+  cells_move: 0
+  foodSaturation: 0
