@@ -36,7 +36,6 @@ public class AppTest {
             }
         }
         System.out.println(animalsProps.get("bear").getFoodSaturation());
-
     }
 }
 
