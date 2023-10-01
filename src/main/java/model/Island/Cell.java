@@ -9,6 +9,11 @@ import java.util.List;
 
 @Getter
 public class Cell {
-    private final List<Animal> animals = new ArrayList<>();
-    private final List<Plant> plants = new ArrayList<>();
+    private final List<Animal> animals;
+    private final List<Plant> plants;
+
+    public Cell() {
+        animals = new ArrayList<>();
+        plants = new ArrayList<>();
+    }
 }
