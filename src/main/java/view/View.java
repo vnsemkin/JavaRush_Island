@@ -40,4 +40,5 @@ public class View {
         cellMap.put(grass.getSymbol(), cell.getPlants().size());
         System.out.println(cellMap);
     }
+
 }
